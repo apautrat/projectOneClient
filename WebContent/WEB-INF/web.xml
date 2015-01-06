@@ -6,18 +6,32 @@
       <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
+  
   <servlet>
     <servlet-name>ListUsers</servlet-name>
     <servlet-class>com.projectOneClient.servlets.ListUsers</servlet-class>
   </servlet>
+  
    <servlet>
     <servlet-name>TweetsId</servlet-name>
     <servlet-class>com.projectOneClient.servlets.TweetsId</servlet-class>
   </servlet>
+  
+    <servlet>
+    <servlet-name>First</servlet-name>
+    <servlet-class>com.projectOneClient.servlets.First</servlet-class>
+  </servlet>
+  
+     <servlet-mapping>
+    <servlet-name>First</servlet-name>
+    <url-pattern>/first</url-pattern>
+  </servlet-mapping>
+  
     <servlet-mapping>
     <servlet-name>TweetsId</servlet-name>
     <url-pattern>/tweetsid</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>ListUsers</servlet-name>
     <url-pattern>/users</url-pattern>

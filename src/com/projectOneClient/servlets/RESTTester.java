@@ -5,38 +5,58 @@ import java.util.concurrent.ExecutionException;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
+
+import org.apache.log4j.Logger;
 
 import com.projectOneClient.model.Tweet;
 import com.projectOneClient.model.User;
 
 public class RESTTester {
-    private String USER_URI  = "http://localhost:8080/projectOne/rest/res/users";
-    private String TWEET_URI = "http://localhost:8080/projectOne/rest/res/tweetsid/";
+
+    private Client    client;
+    private WebTarget target;
+    static Logger     log = Logger.getLogger( RESTTester.class );
+    private String    URI = "http://localhost:8080/projectOne/rest/res/";
+
+    public RESTTester() {
+        client = ClientBuilder.newClient();
+        client.target( URI );
+    }
 
     public List<User> listUsers() throws InterruptedException, ExecutionException {
 
-        Client client = ClientBuilder.newClient();
-
         GenericType<List<User>> gen = new GenericType<List<User>>() {
         };
-        List<User> list = client.target( USER_URI ).request().get( gen );
 
-        System.out.println( list.get( 2 ).getName() );
+        List<User> list = target.path( "users" ).request().get( gen );
+
+        log.info( "User List retreive : " + list );
 
         return list;
     }
 
     public List<Tweet> listTweetsId( String id ) throws InterruptedException, ExecutionException {
 
-        Client client = ClientBuilder.newClient();
-
         GenericType<List<Tweet>> gen = new GenericType<List<Tweet>>() {
         };
-        System.out.println( id );
-        List<Tweet> list = client.target( TWEET_URI ).path( id ).request().get( gen );
+
+        List<Tweet> list = target.path( "tweetsid" ).path( id ).request().get( gen );
+
+        log.info( "Tweet List retreive : " + list );
 
         return list;
+    }
+
+    public String updateData() throws InterruptedException, ExecutionException {
+
+        target.path( "update" );
+
+        log.info( "Data Updated ! That's alrigth mate." );
+
+        return "Database Updated Successfully";
+
     }
 
 }

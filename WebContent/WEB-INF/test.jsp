@@ -9,12 +9,27 @@
     <body>
         <form method="post" action="<c:url value="/users" />">
             <fieldset>
-                <legend>List User</legend>
-                <p>List User 
+                <legend>Pour lister les Utilisateurs</legend>
+                <p>
+            <c:if test="${! empty requestScope.listUsers  }" var="test" scope="session">
                <c:out value="${listUsers[0].name}"/>
-				</p>
-
-                <input type="submit" value="ListUser" class="sansLabel" />
+				
+              <c:forEach items="${requestScope.listUsers}" var="users">
+                  <div class="users">
+                    <div class="nameUsers">
+                      <c:out value="${users['name']}" />
+                    </div> 
+                    <div class="twitterNickname">
+                      <c:out value="${requestScope.users['twitterNickname']}" />
+                    </div>
+                    <div class="joinedDate">
+                      <c:out value="${requestScope.users['joinedDate']}" />
+                    </div>
+                  </div>
+               </c:forEach>
+               </c:if>
+               </p>
+                <input type="submit" value="Go!" class="sansLabel" />
                 <br />
                 
              
