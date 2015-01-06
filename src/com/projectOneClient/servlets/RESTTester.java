@@ -22,29 +22,38 @@ public class RESTTester {
 
     public RESTTester() {
         client = ClientBuilder.newClient();
-        client.target( URI );
+        target = client.target( URI );
     }
 
     public List<User> listUsers() throws InterruptedException, ExecutionException {
 
-        GenericType<List<User>> gen = new GenericType<List<User>>() {
-        };
+        GenericType<List<User>> gen = new GenericType<List<User>>() {};
 
         List<User> list = target.path( "users" ).request().get( gen );
 
-        log.info( "User List retreive : " + list );
+        log.info( "User List retrieved : " + list );
 
         return list;
     }
 
-    public List<Tweet> listTweetsId( String id ) throws InterruptedException, ExecutionException {
+    public List<Tweet> listTweets() throws InterruptedException, ExecutionException {
 
-        GenericType<List<Tweet>> gen = new GenericType<List<Tweet>>() {
-        };
+        GenericType<List<Tweet>> gen = new GenericType<List<Tweet>>() {};
 
-        List<Tweet> list = target.path( "tweetsid" ).path( id ).request().get( gen );
+        List<Tweet> list = target.path( "tweets" ).request().get( gen );
 
-        log.info( "Tweet List retreive : " + list );
+        log.info( "Tweet List retrieved : " + list );
+
+        return list;
+    }
+    
+    public List<Tweet> listTweetsId( long id ) throws InterruptedException, ExecutionException {
+
+        GenericType<List<Tweet>> gen = new GenericType<List<Tweet>>() {};
+
+        List<Tweet> list = target.path( "tweetsid" ).path( Long.toString(id) ).request().get( gen );
+
+        log.info( "Tweet List retrieved : " + list );
 
         return list;
     }

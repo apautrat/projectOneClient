@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <jsp-config>
-    <jsp-property-group>
-      <url-pattern>*.jsp</url-pattern>
-      <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
-    </jsp-property-group>
-  </jsp-config>
-  
-  <servlet>
-    <servlet-name>ListUsers</servlet-name>
-    <servlet-class>com.projectOneClient.servlets.ListUsers</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>TweetsId</servlet-name>
-    <servlet-class>com.projectOneClient.servlets.TweetsId</servlet-class>
-  </servlet>
-  
-    <servlet>
-    <servlet-name>First</servlet-name>
-    <servlet-class>com.projectOneClient.servlets.First</servlet-class>
-  </servlet>
-  
-     <servlet-mapping>
-    <servlet-name>First</servlet-name>
-    <url-pattern>/first</url-pattern>
-  </servlet-mapping>
-  
-    <servlet-mapping>
-    <servlet-name>TweetsId</servlet-name>
-    <url-pattern>/tweetsid</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>ListUsers</servlet-name>
-    <url-pattern>/users</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+
+	<servlet>
+		<servlet-name>TweetsId</servlet-name>
+		<servlet-class>com.projectOneClient.servlets.TweetsId</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TweetsId</servlet-name>
+		<url-pattern>/tweetsid</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListUsers</servlet-name>
+		<servlet-class>com.projectOneClient.servlets.ListUsers</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ListUsers</servlet-name>
+		<url-pattern>/users</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UsersTweets</servlet-name>
+		<servlet-class>com.projectOneClient.servlets.UsersTweets</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UsersTweets</servlet-name>
+		<url-pattern>/userstweets</url-pattern>
+	</servlet-mapping>
 </web-app>

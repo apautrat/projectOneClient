@@ -13,27 +13,25 @@ import com.projectOneClient.model.User;
 
 @SuppressWarnings( "serial" )
 public class ListUsers extends HttpServlet {
-    public static final String VUE = "/WEB-INF/test.jsp";
+	public static final String VUE = "/WEB-INF/users.jsp";
 
-    protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        RESTTester test = new RESTTester();
-        List<User> list;
-        try {
-            list = test.listUsers();
-            request.setAttribute( "listUsers", list );
-        } catch ( InterruptedException e ) {
+	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+		RESTTester test = new RESTTester();
+		List<User> list = null;
+		try { 
+			list = test.listUsers();
+			request.setAttribute( "listUsers", list );
+		} catch ( InterruptedException e ) {
+			e.printStackTrace();
+		} catch ( ExecutionException e ) {
+			e.printStackTrace();
+		}
 
-            e.printStackTrace();
-        } catch ( ExecutionException e ) {
+		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	}
 
-            e.printStackTrace();
-        }
+	protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-    }
-
-    protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-
-    }
+	}
 
 }
