@@ -18,7 +18,7 @@ public class ListUsers extends HttpServlet {
 	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		RESTTester test = new RESTTester();
 		List<User> list = null;
-		try { 
+		try {
 			list = test.listUsers();
 			request.setAttribute( "listUsers", list );
 		} catch ( InterruptedException e ) {

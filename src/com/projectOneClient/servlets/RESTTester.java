@@ -58,14 +58,11 @@ public class RESTTester {
         return list;
     }
 
-    public String updateData() throws InterruptedException, ExecutionException {
+    public void updateData() throws InterruptedException, ExecutionException {
 
-        target.path( "update" );
+        target.path( "updatedata" ).request().get();
 
         log.info( "Data Updated ! That's alrigth mate." );
-
-        return "Database Updated Successfully";
-
     }
 
 }

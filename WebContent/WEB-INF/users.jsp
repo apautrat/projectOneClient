@@ -7,20 +7,19 @@
 <title>Users</title>
 </head>
 <body>
-	<br />
-	<c:forEach var="currentUser" items="${listUsers}">
-		<div class="users">
-			<div class="nameUsers">
-				<c:out value="${currentUser.name}"> No name </c:out>
-			</div>
-			<div class="twitterNickname">
-				<c:out value="${currentUser.twitterNickname}"> No twitterNickname </c:out>
-			</div>
-			<div class="joinedDate">
-				<c:out value="${currentUser.joinedDate}"> No joinedDate </c:out>
-			</div>
-		</div>
-		<br />
-	</c:forEach>
+	<table style="border: 2px solid black; border-collapse: collapse">
+		<tr>
+			<th style="border: 1px solid gray">Name</th>
+			<th style="border: 1px solid gray">Twitter Nickname</th>
+			<th style="border: 1px solid gray">Joined Date</th>
+		</tr>
+		<c:forEach var="currentUser" items="${listUsers}">
+			<tr>
+				<td style="border: 1px solid gray"><c:out value="${currentUser.name}"> No name </c:out></td>
+				<td style="border: 1px solid gray"><c:out value="${currentUser.twitterNickname}"> No twitterNickname </c:out></td>
+				<td style="border: 1px solid gray"><c:out value="${currentUser.joinedDate}"> No joinedDate </c:out></td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

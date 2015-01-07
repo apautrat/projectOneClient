@@ -38,4 +38,14 @@
 		<servlet-name>UsersTweets</servlet-name>
 		<url-pattern>/userstweets</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>UpdateData</servlet-name>
+		<servlet-class>com.projectOneClient.servlets.UpdateData</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateData</servlet-name>
+		<url-pattern>/updatedata</url-pattern>
+	</servlet-mapping>
 </web-app>

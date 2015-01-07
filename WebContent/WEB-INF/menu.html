@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JEE Project - Menu</title>
+</head>
+<body>
+	<h1>Menu</h1>
+	<input type="button" value="List all users" onclick="showUsers()">
+	<br />
+	<br />
+	<input type="button" value="List tweets with userId" onclick="showTweetsId()">
+	<br />
+	<br />
+	<input type="button" value="List users and their tweets" onclick="showUsersTweets()">
+	<br />
+	<br />
+	<input type="button" value="Update data" onclick="updateData()">
+	<br />
+	<br />
+</body>
+
+<script type="text/javascript">
+	function showUsers() 
+	{
+	       window.location = 'http://localhost:8080/projectOneClient/users';
+	}
+	
+	function showTweetsId() 
+	{
+	       window.location = 'http://localhost:8080/projectOneClient/tweetsid';
+	}
+	
+	function showUsersTweets() 
+	{
+	       window.location = 'http://localhost:8080/projectOneClient/userstweets';
+	}
+	
+	function updateData()
+	{
+	       window.location = 'http://localhost:8080/projectOneClient/updatedata';
+	}
+</script>
+
+</html>
