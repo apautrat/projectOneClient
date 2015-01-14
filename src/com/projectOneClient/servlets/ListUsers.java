@@ -12,18 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.projectOneClient.model.User;
 
 @SuppressWarnings( "serial" )
-public class ListUsers extends HttpServlet {
+public class ListUsers extends HttpServlet 
+{    
+    // Lien de la JSP listant tous les Users
 	public static final String VUE = "/WEB-INF/users.jsp";
 
-	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException 
+	{
 		RESTTester test = new RESTTester();
 		List<User> list = null;
-		try {
+		
+		try 
+		{
+			// On recupere la liste de tous les Users
 			list = test.listUsers();
+			
+			// On passe la liste de tous les Users en attribut du HttpServletRequest
 			request.setAttribute( "listUsers", list );
-		} catch ( InterruptedException e ) {
+		} 
+		catch ( InterruptedException e ) 
+		{
 			e.printStackTrace();
-		} catch ( ExecutionException e ) {
+		} catch ( ExecutionException e ) 
+		{
 			e.printStackTrace();
 		}
 

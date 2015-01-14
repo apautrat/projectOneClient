@@ -12,17 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.projectOneClient.model.User;
 
 @SuppressWarnings( "serial" )
-public class UpdateData extends HttpServlet {
+public class UpdateData extends HttpServlet 
+{
+	// Lien de la JSP indiquant que la mise a jour s'est effectuee
 	public static final String VUE = "/WEB-INF/updateData.jsp";
 
-	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException 
+	{
 		RESTTester test = new RESTTester();
-		//List<User> list = null;
-		try { 
+		
+		try 
+		{
+			// Appel de la methode mettant a jour la base de donnees
 			test.updateData();
-		} catch ( InterruptedException e ) {
+		} 
+		catch ( InterruptedException e ) {
 			e.printStackTrace();
-		} catch ( ExecutionException e ) {
+		} 
+		catch ( ExecutionException e ) {
 			e.printStackTrace();
 		}
 
